@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BDRestaurantesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TBL_CLIENTES">
+          <Key>
+            <PropertyRef Name="ID_CLIENTE" />
+          </Key>
+          <Property Name="ID_CLIENTE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="APELLIDO1" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="APELLIDO2" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TELEFONO" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_EMPLEADOS">
+          <Key>
+            <PropertyRef Name="ID_EMPLEADO" />
+          </Key>
+          <Property Name="ID_EMPLEADO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="APELLIDO1" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="APELLIDO2" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_SUCURSAL" Type="int" Nullable="false" />
+          <Property Name="USUARIO" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CONTRASEÑA" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SALARIO" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="TELEFONO" Type="int" Nullable="false" />
+          <Property Name="DIRECCION" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TIEMPO_SERVICIO" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="TIPO_USUARIO" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_INVENTARIO">
+          <Key>
+            <PropertyRef Name="ID_INVENTARIO" />
+          </Key>
+          <Property Name="ID_INVENTARIO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="INGREDIENTE" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="VENCIMIENTO" Type="date" Nullable="false" />
+          <Property Name="MARCA" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_PROVEEDOR" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_MESAS">
+          <Key>
+            <PropertyRef Name="ID_MESA" />
+          </Key>
+          <Property Name="ID_MESA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_SUCURSAL" Type="int" Nullable="false" />
+          <Property Name="CAPACIDAD" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_PRODUCTOS">
+          <Key>
+            <PropertyRef Name="ID_PRODUCTO" />
+          </Key>
+          <Property Name="ID_PRODUCTO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TIPO" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PRECIO" Type="int" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_PROVEEDORES">
+          <Key>
+            <PropertyRef Name="ID_PROVEEDOR" />
+          </Key>
+          <Property Name="ID_PROVEEDOR" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PROVEEDOR" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NOMBRE_CONTACTO" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TELEFONO" Type="int" Nullable="false" />
+          <Property Name="SITIO_WEB" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_SUCURSALES">
+          <Key>
+            <PropertyRef Name="ID_SUCURSAL" />
+          </Key>
+          <Property Name="ID_SUCURSAL" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UBICACION" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TELEFONO" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="BDRestaurantesModelStoreContainer">
+          <EntitySet Name="TBL_CLIENTES" EntityType="Self.TBL_CLIENTES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_EMPLEADOS" EntityType="Self.TBL_EMPLEADOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_INVENTARIO" EntityType="Self.TBL_INVENTARIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_MESAS" EntityType="Self.TBL_MESAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_PRODUCTOS" EntityType="Self.TBL_PRODUCTOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_PROVEEDORES" EntityType="Self.TBL_PROVEEDORES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_SUCURSALES" EntityType="Self.TBL_SUCURSALES" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BDRestaurantesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TBL_EMPLEADOS">
+          <Key>
+            <PropertyRef Name="ID_EMPLEADO" />
+          </Key>
+          <Property Name="ID_EMPLEADO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="APELLIDO1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="APELLIDO2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_SUCURSAL" Type="Int32" Nullable="false" />
+          <Property Name="USUARIO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CONTRASEÑA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SALARIO" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="TELEFONO" Type="Int32" Nullable="false" />
+          <Property Name="DIRECCION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TIEMPO_SERVICIO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="TIPO_USUARIO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="BDRestaurantesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TBL_EMPLEADOS" EntityType="Self.TBL_EMPLEADOS" />
+          <EntitySet Name="TBL_CLIENTES" EntityType="BDRestaurantesModel.TBL_CLIENTES" />
+          <EntitySet Name="TBL_INVENTARIO" EntityType="BDRestaurantesModel.TBL_INVENTARIO" />
+          <EntitySet Name="TBL_SUCURSALES" EntityType="BDRestaurantesModel.TBL_SUCURSALES" />
+          <EntitySet Name="TBL_PROVEEDORES" EntityType="BDRestaurantesModel.TBL_PROVEEDORES" />
+          <EntitySet Name="TBL_PRODUCTOS" EntityType="BDRestaurantesModel.TBL_PRODUCTOS" />
+          <EntitySet Name="TBL_MESAS" EntityType="BDRestaurantesModel.TBL_MESAS" />
+        </EntityContainer>
+        <EntityType Name="TBL_CLIENTES">
+          <Key>
+            <PropertyRef Name="ID_CLIENTE" />
+          </Key>
+          <Property Name="ID_CLIENTE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="APELLIDO1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="APELLIDO2" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TELEFONO" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_INVENTARIO">
+          <Key>
+            <PropertyRef Name="ID_INVENTARIO" />
+          </Key>
+          <Property Name="ID_INVENTARIO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="INGREDIENTE" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="VENCIMIENTO" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="MARCA" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ID_PROVEEDOR" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_SUCURSALES">
+          <Key>
+            <PropertyRef Name="ID_SUCURSAL" />
+          </Key>
+          <Property Name="ID_SUCURSAL" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UBICACION" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TELEFONO" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_PROVEEDORES">
+          <Key>
+            <PropertyRef Name="ID_PROVEEDOR" />
+          </Key>
+          <Property Name="ID_PROVEEDOR" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PROVEEDOR" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NOMBRE_CONTACTO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TELEFONO" Type="Int32" Nullable="false" />
+          <Property Name="SITIO_WEB" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_PRODUCTOS">
+          <Key>
+            <PropertyRef Name="ID_PRODUCTO" />
+          </Key>
+          <Property Name="ID_PRODUCTO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TIPO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PRECIO" Type="Int32" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TBL_MESAS">
+          <Key>
+            <PropertyRef Name="ID_MESA" />
+          </Key>
+          <Property Name="ID_MESA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_SUCURSAL" Type="Int32" Nullable="false" />
+          <Property Name="CAPACIDAD" Type="Int32" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BDRestaurantesModelStoreContainer" CdmEntityContainer="BDRestaurantesEntities">
+          <EntitySetMapping Name="TBL_EMPLEADOS">
+            <EntityTypeMapping TypeName="BDRestaurantesModel.TBL_EMPLEADOS">
+              <MappingFragment StoreEntitySet="TBL_EMPLEADOS">
+                <ScalarProperty Name="ID_EMPLEADO" ColumnName="ID_EMPLEADO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="APELLIDO1" ColumnName="APELLIDO1" />
+                <ScalarProperty Name="APELLIDO2" ColumnName="APELLIDO2" />
+                <ScalarProperty Name="ID_SUCURSAL" ColumnName="ID_SUCURSAL" />
+                <ScalarProperty Name="USUARIO" ColumnName="USUARIO" />
+                <ScalarProperty Name="CONTRASEÑA" ColumnName="CONTRASEÑA" />
+                <ScalarProperty Name="SALARIO" ColumnName="SALARIO" />
+                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+                <ScalarProperty Name="TIEMPO_SERVICIO" ColumnName="TIEMPO_SERVICIO" />
+                <ScalarProperty Name="TIPO_USUARIO" ColumnName="TIPO_USUARIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_CLIENTES">
+            <EntityTypeMapping TypeName="BDRestaurantesModel.TBL_CLIENTES">
+              <MappingFragment StoreEntitySet="TBL_CLIENTES">
+                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+                <ScalarProperty Name="APELLIDO2" ColumnName="APELLIDO2" />
+                <ScalarProperty Name="APELLIDO1" ColumnName="APELLIDO1" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="ID_CLIENTE" ColumnName="ID_CLIENTE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_INVENTARIO">
+            <EntityTypeMapping TypeName="BDRestaurantesModel.TBL_INVENTARIO">
+              <MappingFragment StoreEntitySet="TBL_INVENTARIO">
+                <ScalarProperty Name="ID_PROVEEDOR" ColumnName="ID_PROVEEDOR" />
+                <ScalarProperty Name="MARCA" ColumnName="MARCA" />
+                <ScalarProperty Name="VENCIMIENTO" ColumnName="VENCIMIENTO" />
+                <ScalarProperty Name="INGREDIENTE" ColumnName="INGREDIENTE" />
+                <ScalarProperty Name="ID_INVENTARIO" ColumnName="ID_INVENTARIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_SUCURSALES">
+            <EntityTypeMapping TypeName="BDRestaurantesModel.TBL_SUCURSALES">
+              <MappingFragment StoreEntitySet="TBL_SUCURSALES">
+                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+                <ScalarProperty Name="UBICACION" ColumnName="UBICACION" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="ID_SUCURSAL" ColumnName="ID_SUCURSAL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_PROVEEDORES">
+            <EntityTypeMapping TypeName="BDRestaurantesModel.TBL_PROVEEDORES">
+              <MappingFragment StoreEntitySet="TBL_PROVEEDORES">
+                <ScalarProperty Name="SITIO_WEB" ColumnName="SITIO_WEB" />
+                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+                <ScalarProperty Name="NOMBRE_CONTACTO" ColumnName="NOMBRE_CONTACTO" />
+                <ScalarProperty Name="PROVEEDOR" ColumnName="PROVEEDOR" />
+                <ScalarProperty Name="ID_PROVEEDOR" ColumnName="ID_PROVEEDOR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_PRODUCTOS">
+            <EntityTypeMapping TypeName="BDRestaurantesModel.TBL_PRODUCTOS">
+              <MappingFragment StoreEntitySet="TBL_PRODUCTOS">
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
+                <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="ID_PRODUCTO" ColumnName="ID_PRODUCTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_MESAS">
+            <EntityTypeMapping TypeName="BDRestaurantesModel.TBL_MESAS">
+              <MappingFragment StoreEntitySet="TBL_MESAS">
+                <ScalarProperty Name="CAPACIDAD" ColumnName="CAPACIDAD" />
+                <ScalarProperty Name="ID_SUCURSAL" ColumnName="ID_SUCURSAL" />
+                <ScalarProperty Name="ID_MESA" ColumnName="ID_MESA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
